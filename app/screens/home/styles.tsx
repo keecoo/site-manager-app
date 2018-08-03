@@ -18,6 +18,7 @@ const styles: any = StyleSheet.create({
 	},
 	liText: {
 		marginLeft: 20,
+		flex: 1,
 	}
 });
 export default styles;

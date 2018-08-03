@@ -38,7 +38,7 @@ export default class SiteScreen extends React.Component<Props> {
 									<Image style={{ height: 240, alignSelf: "stretch" }} source={{ uri: this.props.data.getSiteInfo.image_url }} />
 								</View>
 								<View style={{ flex: 1 }}>
-									<Text style={{ alignSelf: "stretch" }}>{this.props.data.getSiteInfo.site_name}</Text>
+									<Title style={{ alignSelf: "stretch" }}>{this.props.data.getSiteInfo.site_name}</Title>
 								</View>
 								<View style={{ flex: 1 }}>
 									<Text style={{ alignSelf: "stretch" }}>
@@ -49,16 +49,21 @@ export default class SiteScreen extends React.Component<Props> {
 						</CardItem>
 					</Card>
 					<Title>Animals</Title>
-					<Card>
-
-						<CardItem>
-							<List>
+					<Card style={{ flex: 1 }}>
+						<CardItem style={{ flex: 1 }}>
+							<List style={{ flex: 1 }}>
 								{this.props.data.getSiteInfo.animals.items.map((item: any, i: number) => (
-									<ListItem style={{ alignSelf: "stretch" }}
+									<ListItem
 										key={i}
 										onPress={() => this.props.goToAnimal(item)}>
-										<Thumbnail square small source={{ uri: item.image_url }} />
-										<Text style={{ alignSelf: "stretch" }}>{item.animal_name}</Text>
+										{/* <Thumbnail square small source={{ uri: item.image_url }} /> */}
+										<Thumbnail square small source={{ uri: "https://www.w3schools.com/howto/img_forest.jpg" }} />
+										<Text style={styles.liText}>{item.animal_name}</Text>
+										<Icon
+											style={{ position: 'absolute', right: 0 }}
+											active
+											name="ios-arrow-forward-outline"
+										/>
 									</ListItem>
 								))}
 							</List>

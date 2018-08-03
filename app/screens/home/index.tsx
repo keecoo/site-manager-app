@@ -1,4 +1,5 @@
 import * as React from "react";
+import { View } from "react-native";
 import {
   Container,
   Header,
@@ -58,8 +59,15 @@ class HomeScreen extends React.Component<Props, State> {
                 style={styles.li}
                 key={i}
                 onPress={() => this.props.goToSite(item)}>
-                <Thumbnail square small source={{ uri: item.image_url }} />
-                <Text style={styles.liText} >{item.site_name}</Text>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                  <Thumbnail square small source={{ uri: item.image_url }} />
+                  <Text style={styles.liText} >{item.site_name}</Text>
+                  <Icon
+                    style={{ position: 'absolute', right: 0 }}
+                    active
+                    name="ios-arrow-forward-outline"
+                  />
+                </View>
               </ListItem>
 
             ))}
