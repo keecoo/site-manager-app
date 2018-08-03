@@ -2,7 +2,7 @@ import * as React from "react";
 import { AsyncStorage, ActivityIndicator, View } from "react-native";
 import { Container } from "native-base";
 import { withApollo } from 'react-apollo';
-import Login from "../../screens/login";
+import LoginScreen from "../../screens/login";
 import LoadingScreen from "../../screens/loading";
 import Auth0 from 'react-native-auth0';
 
@@ -17,7 +17,7 @@ export interface Props {
 export interface State {
 	isLoading: boolean;
 }
-class LoginForm extends React.Component<Props, State>  {
+class Login extends React.Component<Props, State>  {
 	constructor(props: any) {
 		super(props);
 		this.state = { isLoading: false };
@@ -60,9 +60,9 @@ class LoginForm extends React.Component<Props, State>  {
 		}
 
 		return (
-			<Login onLogin={() => this.login()} />
+			<LoginScreen onLogin={() => this.login()} />
 		);
 	}
 }
 
-export default withApollo(LoginForm);
+export default withApollo(Login);

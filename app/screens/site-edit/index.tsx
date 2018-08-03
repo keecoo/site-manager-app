@@ -28,7 +28,7 @@ export interface State {
     description: string;
     imageUrl: string;
 }
-export default class SiteEditScreen extends React.Component<Props> {
+export default class SiteEditScreen extends React.Component<Props, State> {
     constructor(props: any) {
         super(props);
         if (this.props.data.getUserInfo != null) {

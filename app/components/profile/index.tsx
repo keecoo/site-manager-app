@@ -8,7 +8,7 @@ import GET_USER_INFO from "../../queries/user-info-query";
 export interface Props {
 	navigation: any;
 }
-export default class ProfileComponent extends React.Component<Props> {
+export default class Profile extends React.Component<Props> {
 	toggleDrawer() {
 		this.props.navigation.dispatch(DrawerActions.toggleDrawer());
 	}

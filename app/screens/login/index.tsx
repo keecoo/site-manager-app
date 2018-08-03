@@ -7,7 +7,7 @@ export interface Props {
 	onLogin: Function;
 }
 export interface State { }
-class Login extends React.Component<Props, State> {
+class LoginScreen extends React.Component<Props, State> {
 	render() {
 		return (
 			<Container>
@@ -31,4 +31,4 @@ class Login extends React.Component<Props, State> {
 	}
 }
 
-export default Login;
+export default LoginScreen;
