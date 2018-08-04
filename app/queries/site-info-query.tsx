@@ -6,6 +6,12 @@ query($site_id: String!) {
         site_name,
         description,
         image_url,
+        location {
+            latitude,
+            longitude,
+            latitudeDelta,
+            longitudeDelta
+        }
         animals (limit : 10 ) {
             items {
                 animal_id,

@@ -1,7 +1,24 @@
 import * as React from "react";
-import { Image, View, Platform } from "react-native";
+import { View } from "react-native";
+import MapView from 'react-native-maps';
 import styles from "./styles";
-import { Card, CardItem, Container, Item, Content, Left, Button, Icon, Header, Body, Title, Text, List, ListItem, Thumbnail, Right } from "native-base";
+import {
+	Card,
+	CardItem,
+	Container,
+	Content,
+	Left,
+	Button,
+	Icon,
+	Header,
+	Body,
+	Title,
+	Text,
+	List,
+	ListItem,
+	Thumbnail,
+	Right
+} from "native-base";
 
 //import styles from "./styles";
 export interface Props {
@@ -34,9 +51,17 @@ export default class SiteScreen extends React.Component<Props> {
 					<Card>
 						<CardItem cardBody>
 							<View style={{ flex: 1, flexDirection: 'column' }}>
-								<View style={{ flex: 1 }}>
+								{/* <View style={{ flex: 1 }}>
 									<Image style={{ height: 240, alignSelf: "stretch" }} source={{ uri: this.props.data.getSiteInfo.image_url }} />
-								</View>
+								</View> */}
+								<MapView style={{ flex: 1, height: 200, width: 400 }}
+									initialRegion={this.props.data.getSiteInfo.location}
+								>
+									<MapView.Marker.Animated
+										ref={marker => { this.marker = marker }}
+										coordinate={this.props.data.getSiteInfo.location}
+									/>
+								</MapView>
 								<View style={{ flex: 1 }}>
 									<Title style={{ alignSelf: "stretch" }}>{this.props.data.getSiteInfo.site_name}</Title>
 								</View>
