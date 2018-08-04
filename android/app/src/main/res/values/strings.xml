@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Site Manager App</string>
+    <string name="com_auth0_client_id">WQM0a6pslcy26ZPPKVGcvT3_7WGoRKSd</string>
+    <string name="com_auth0_domain">feralfinder.auth0.com</string>
 </resources>

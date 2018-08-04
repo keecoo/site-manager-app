@@ -5,7 +5,7 @@ import { HttpLink } from 'apollo-link-http';
 import { ApolloLink } from 'apollo-link';
 
 const httpLink = new HttpLink({
-    uri: 'http://127.0.0.1:4001/graphql',
+    uri: 'http://10.0.2.2:4001/graphql',
 });
 
 let token = "";

@@ -46,7 +46,7 @@ export default class Home extends React.Component<Props> {
                         variables={{ handle: data.email }} >
                         {({ loading, error, data }) => {
                             if (loading) return <LoadingScreen />;
-                            if (error) return <Text>Error</Text>;
+                            if (error) return <Text>Error...{error.message}</Text>;
 
                             return <HomeScreen
                                 toggleDrawer={() => this.toggleDrawer()}
