@@ -3,9 +3,10 @@ import { setContext } from 'apollo-link-context';
 import { onError } from 'apollo-link-error';
 import { HttpLink } from 'apollo-link-http';
 import { ApolloLink } from 'apollo-link';
+import Config from 'react-native-config';
 
 const httpLink = new HttpLink({
-    uri: 'http://10.0.2.2:4001/graphql',
+    uri: `${Config.SERVER_URL}/graphql`
 });
 
 let token = "";
@@ -29,6 +30,7 @@ const resetToken = onError(({ networkError }) => {
 
 
 const authLink = new ApolloLink((operation, forward) => {
+    console.log(`${Config.SERVER_URL}/graphql`);
     let ctx = operation.getContext();
     operation.setContext({
         headers: {

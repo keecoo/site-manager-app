@@ -3,6 +3,7 @@ package com.sitemanagerapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.auth0.react.A0Auth0Package;
@@ -25,7 +26,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(new MainReactPackage(), new ImagePickerPackage(), new VectorIconsPackage(),
+      return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new ReactNativeConfigPackage(), new ImagePickerPackage(), new VectorIconsPackage(),
           new A0Auth0Package(), new MapsPackage());
     }
 
