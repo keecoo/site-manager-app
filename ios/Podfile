@@ -4,7 +4,7 @@
 target 'SiteManagerApp' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
-
+  project 'SiteManagerApp.xcodeproj'
   # Pods for SiteManagerApp
   rn_path = '../node_modules/react-native'
   rn_maps_path = '../node_modules/react-native-maps'
@@ -41,8 +41,6 @@ target 'SiteManagerApp' do
   pod 'react-native-google-maps', path: rn_maps_path  # Remove this line if you don't want to support GoogleMaps on iOS
   pod 'GoogleMaps'  # Remove this line if you don't want to support GoogleMaps on iOS
   pod 'Google-Maps-iOS-Utils' # Remove this line if you don't want to support GoogleMaps on iOS
-
-  pod 'react-native-config', :path => '../node_modules/react-native-config'
 
   target 'SiteManagerAppTests' do
     inherit! :search_paths
