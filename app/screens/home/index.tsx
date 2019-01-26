@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, FlatList } from "react-native";
 import {
   Container,
   Header,
@@ -11,7 +11,6 @@ import {
   Left,
   Body,
   Right,
-  List,
   ListItem,
   Thumbnail
 } from "native-base";
@@ -40,7 +39,7 @@ class HomeScreen extends React.Component<Props, State> {
             </Button>
           </Left>
           <Body>
-            <Title>User Sites</Title>
+            <Title>Sites</Title>
           </Body>
           <Right>
             <Button transparent>
@@ -53,11 +52,12 @@ class HomeScreen extends React.Component<Props, State> {
           </Right>
         </Header>
         <Content>
-          <List>
-            {this.props.data.getUserInfo.siteInfo.items.map((item: any, i: number) => (
-              <ListItem
+          <FlatList<any>
+            data={this.props.data.getUserInfo.siteInfo.items}
+            renderItem={({item}) =>   (
+            <ListItem
                 style={styles.li}
-                key={i}
+                key={item.key}
                 onPress={() => this.props.goToSite(item)}>
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                   <Thumbnail square small source={{ uri: item.image_url }} />
@@ -65,13 +65,13 @@ class HomeScreen extends React.Component<Props, State> {
                   <Icon
                     style={{ position: 'absolute', right: 0 }}
                     active
-                    name="ios-arrow-forward-outline"
+                    name='arrow-forward'
                   />
                 </View>
               </ListItem>
 
-            ))}
-          </List>
+            )}
+          />
         </Content>
       </Container>
     );

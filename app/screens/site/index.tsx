@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View } from "react-native";
+import { View, FlatList } from "react-native";
 import MapView from 'react-native-maps';
 import styles from "./styles";
 import {
@@ -14,7 +14,6 @@ import {
 	Body,
 	Title,
 	Text,
-	List,
 	ListItem,
 	Thumbnail,
 	Right
@@ -76,10 +75,11 @@ export default class SiteScreen extends React.Component<Props> {
 					<Title>Animals</Title>
 					<Card style={{ flex: 1 }}>
 						<CardItem style={{ flex: 1 }}>
-							<List style={{ flex: 1 }}>
-								{this.props.data.getSiteInfo.animals.items.map((item: any, i: number) => (
+							<FlatList<any> style={{ flex: 1 }}
+								data={this.props.data.getSiteInfo.animals.items}
+								renderItem={({item}) =>   (
 									<ListItem
-										key={i}
+										key={item.key}
 										onPress={() => this.props.goToAnimal(item)}>
 										{/* <Thumbnail square small source={{ uri: item.image_url }} /> */}
 										<Thumbnail square small source={{ uri: "https://www.w3schools.com/howto/img_forest.jpg" }} />
@@ -87,11 +87,11 @@ export default class SiteScreen extends React.Component<Props> {
 										<Icon
 											style={{ position: 'absolute', right: 0 }}
 											active
-											name="ios-arrow-forward-outline"
+											name='arrow-forward'
 										/>
 									</ListItem>
-								))}
-							</List>
+								)}
+							/>
 						</CardItem>
 					</Card>
 				</Content>

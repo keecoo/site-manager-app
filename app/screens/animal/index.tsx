@@ -36,7 +36,7 @@ class AnimalScreen extends React.Component<Props> {
 						<Button transparent onPress={() => this.props.goBack()}>
 							<Icon
 								active
-								name="arrow-back"
+								name='arrow-back'
 							/>
 						</Button>
 					</Left>

@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Text, Container, List, ListItem, Content } from "native-base";
-import { NavigationActions } from "react-navigation";
+import { Text, Container, ListItem, Content } from "native-base";
+import { FlatList } from "react-native";
 
 export interface Props {
 	navigation: any;
@@ -11,19 +11,19 @@ export default class Sidebar extends React.Component<Props> {
 		return (
 			<Container>
 				<Content>
-					<List
+					<FlatList<any>
 						style={{ marginTop: 40 }}
-						dataArray={this.props.routes}
-						renderRow={data => {
+						data={this.props.routes}
+						renderItem={({item}) => {
 							return (
 								<ListItem
 									button
 									onPress={() => {
-										data.func();
-										this.props.navigation.navigate(data.route)
+										item.func();
+										this.props.navigation.navigate(item.route)
 									}}
 								>
-									<Text>{data.caption}</Text>
+									<Text>{item.caption}</Text>
 								</ListItem>
 							);
 						}}
