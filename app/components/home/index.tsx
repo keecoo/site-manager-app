@@ -47,7 +47,6 @@ export default class Home extends React.Component<Props> {
                         {({ loading, error, data }) => {
                             if (loading) return <LoadingScreen />;
                             if (error) return <Text>Error...{error.message}</Text>;
-
                             return <HomeScreen
                                 toggleDrawer={() => this.toggleDrawer()}
                                 editSite={() => this.editSite()}

@@ -51,9 +51,9 @@ class HomeScreen extends React.Component<Props, State> {
             </Button>
           </Right>
         </Header>
-        <Content>
+        <Content>          
           <FlatList<any>
-            data={this.props.data.getUserInfo.siteInfo.items}
+            data={this.props.data.getUserInfo.siteInfo ? this.props.data.getUserInfo.siteInfo.items : []}
             renderItem={({item}) =>   (
             <ListItem
                 style={styles.li}
