@@ -15,6 +15,7 @@ const withToken = setContext(() => {
 
     return AsyncStorage.getItem('AUTHORIZATION_TOKEN')
         .then((userToken) => {
+            //console.log(userToken);
             token = userToken;
             return {
                 token
@@ -35,6 +36,7 @@ const authLink = new ApolloLink((operation, forward) => {
     operation.setContext({
         headers: {
             authorization: ctx.token
+            //authorization: 'asdfasdfasdfsadf'
         }
     });
     return forward(operation);

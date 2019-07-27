@@ -34,13 +34,15 @@ class Login extends React.Component<Props, State>  {
 			.webAuth
 			.authorize({ scope: 'openid email', audience: 'https://feralfinder.auth0.com/userinfo' })
 			.then(credentials => {
-				this.setItem("AUTHORIZATION_TOKEN", credentials.accessToken);
+				console.log(credentials);
+				this.setItem("AUTHORIZATION_TOKEN", credentials.idToken);
 				auth0
 					.auth
 					.userInfo({ token: credentials.accessToken })
 					.then(data => {
 						this.props.client.writeData({ data: { email: data.email } });
 						this.setItem("USER_EMAIL", data.email);
+						//this.setItem("USER_NAME", data.name);
 						this.props.navigation.navigate("App");
 						this.setState({ isLoading: false });
 					})

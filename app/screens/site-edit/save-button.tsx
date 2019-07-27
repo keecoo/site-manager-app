@@ -1,36 +1,24 @@
-import React, { Component } from 'react';
-import USER_UPDATE from '../../queries/user-update-mutation';
-import { graphql, Mutation } from 'react-apollo';
-import { Button, Keyboard } from 'react-native';
+import React from 'react';
+import CREATE_SITE_AND_LINK from '../../queries/create-site-and-link-mutation';
+import { Mutation } from 'react-apollo';
+import { Button } from 'react-native';
 
 const SaveButton = (props: any) => {
     return (
         <Mutation
-            mutation={USER_UPDATE}
-        //update={(cache, { data: { insert_todos } }) => {
-        //fix this crap
-        // const data = cache.readQuery({ query: FETCH_TODOS });
-        // const newTodo = {
-        //     task: props.task,
-        //     completed: false,
-        //     user_id: props.userId,
-        //     id: insert_todos.returning[0].id
-        // }
-        // data.todos.push(newTodo);
-        // cache.writeQuery({ query: FETCH_TODOS, data })
-        //}}
+            mutation={CREATE_SITE_AND_LINK}
         >
-            {(updateUser, { data }) => (
+            {(createSiteAndLink, { data }) => (
                 <Button
                     title="Update"
                     onPress={() => {
                         console.log(props);
-                        updateUser({
+                        createSiteAndLink({
                             variables: {
-                                first_name: props.first_name,
-                                last_name: props.last_name,
-                                phone: props.phone,
-                                handle: "Madalyn61"
+                                site_name: props.site_name,
+                                description: props.description,
+                                image_url: props.image_url,
+                                handle: "kgcoombs@gmail.com"
                             }
                         });
                     }}

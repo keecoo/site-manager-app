@@ -17,11 +17,11 @@ import {
     Label
 } from "native-base";
 import styles from "./styles";
+import SaveButton from "./save-button";
 
 export interface Props {
     data: any;
     goBack(): void;
-    goToAnimal(item: any): void;
 }
 export interface State {
     siteName: string;
@@ -31,20 +31,10 @@ export interface State {
 export default class SiteEditScreen extends React.Component<Props, State> {
     constructor(props: any) {
         super(props);
-        if (this.props.data.getUserInfo != null) {
             this.state = {
-                siteName: this.props.data.getUserInfo.first_name,
-                description: this.props.data.getUserInfo.last_name,
-                imageUrl: this.props.data.getUserInfo.phone,
-            };
-        }
-        else {
-            this.state = {
-                siteName: "",
-                description: "",
-                imageUrl: "",
-            };
-
+            siteName: "",
+            description: "",
+            imageUrl: "",        
         }
     }
     render() {
@@ -61,9 +51,7 @@ export default class SiteEditScreen extends React.Component<Props, State> {
                         <Title>Edit Site</Title>
                     </Body>
                     <Right>
-                        <Button transparent onPress={() => this.props.goBack()}>
-                            <Text>Update</Text>
-                        </Button>
+                        <SaveButton site_name={this.state.siteName} description={this.state.description} image_url={this.state.imageUrl} />
                     </Right>
                 </Header>
                 <Content>
