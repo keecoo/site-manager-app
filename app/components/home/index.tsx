@@ -5,7 +5,7 @@ import { DrawerActions, NavigationActions } from 'react-navigation';
 import HomeScreen from "../../screens/home";
 import LoadingScreen from "../../screens/loading";
 import GET_USER_INFO from "../../queries/user-info-query";
-import GET_CURRENT_USER_EMAIL from "../../queries/get-current-user-email";
+import GET_CURRENT_USER_ID from "../../queries/get-current-user-id";
 
 export interface Props {
     navigation: any;
@@ -39,11 +39,11 @@ export default class Home extends React.Component<Props> {
     render() {
         return (
             <Query
-                query={GET_CURRENT_USER_EMAIL} >
+                query={GET_CURRENT_USER_ID} >
                 {({ loading, error, data }) => {
                     return <Query
                         query={GET_USER_INFO}
-                        variables={{ handle: data.email }} >
+                        variables={{ user_id: data.user_id }} >
                         {({ loading, error, data }) => {
                             if (loading) return <LoadingScreen />;
                             if (error) return <Text>Error...{error.message}</Text>;

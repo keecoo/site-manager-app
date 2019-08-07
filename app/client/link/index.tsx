@@ -13,7 +13,7 @@ let token = "";
 const withToken = setContext(() => {
     if (token != "") return { token };
 
-    return AsyncStorage.getItem('AUTHORIZATION_TOKEN')
+    return AsyncStorage.getItem('ACCESS_TOKEN')
         .then((userToken) => {
             //console.log(userToken);
             token = userToken;

@@ -31,7 +31,7 @@ export default class SidebarContainer extends React.Component<Props> {
 			caption: "Logout",
 			func: () => {
 				AsyncStorage.removeItem("USER_EMAIL");
-				AsyncStorage.removeItem("AUTHORIZATION_TOKEN");
+				AsyncStorage.removeItem("ACCESS_TOKEN");
 			}
 		},
 	];

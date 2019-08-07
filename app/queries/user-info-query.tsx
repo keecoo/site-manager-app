@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export default gql`
-query($handle: String!) {
-    getUserInfo(handle:$handle) {
+query($user_id: String!) {
+    getUserInfo(user_id:$user_id) {
         name,
         first_name,
         last_name,

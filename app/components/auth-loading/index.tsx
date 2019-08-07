@@ -18,9 +18,11 @@ class AuthLoading extends React.Component<Props> {
     }
 
     _bootstrapAsync = async () => {
-        const userToken = await AsyncStorage.getItem('AUTHORIZATION_TOKEN');
+        const userToken = await AsyncStorage.getItem('ACCESS_TOKEN');
         const email = await AsyncStorage.getItem('USER_EMAIL');
+        const user_id = await AsyncStorage.getItem('USER_ID');
         this.props.client.writeData({ data: { email: email } });
+        this.props.client.writeData({ data: { user_id: user_id } });
         this.props.navigation.navigate(userToken ? 'App' : 'Login');
     };
 
